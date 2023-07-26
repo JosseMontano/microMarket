@@ -1,7 +1,8 @@
 import { Box } from "@mui/material";
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import { MapContainer, TileLayer, Marker } from "react-leaflet";
 import L from "leaflet";
 import Icon from "../../assets/store.png";
+import IconLocation from "../../assets/location.png";
 import "leaflet/dist/leaflet.css";
 import { StoresDataType } from "../../types/map";
 
@@ -10,6 +11,13 @@ interface Params {
   longitude: number;
   storesData: StoresDataType[];
   handleRedirectToCompany: (id: number) => void;
+}
+
+function GetIconLocation(_iconSize: number) {
+  return L.icon({
+    iconUrl: IconLocation,
+    iconSize: [_iconSize, _iconSize],
+  });
 }
 
 function GetIcon(_iconSize: number) {
@@ -34,11 +42,10 @@ const MapComp = (params: Params) => {
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
         {/* ========= I AM HERE =========*/}
-        <Marker position={[latitude, longitude]}>
-          <Popup>
-            A pretty CSS3 popup. <br /> Easily customizable.
-          </Popup>
-        </Marker>
+        <Marker
+          position={[latitude, longitude]}
+          icon={GetIconLocation(50)}
+        ></Marker>
 
         {/* ========= OTHER STORES=========*/}
         {storesData.map((v, i) => (
