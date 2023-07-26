@@ -1,0 +1,21 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f2f2f2;
+}
+
+/* ============== MAP ============== */
+.map {
+  min-height: 600px;
+  min-width: 500px;
+  border: 2px solid #ab4630;
+}
+@media screen and (max-width: 530px) {
+  .map {
+    min-width: 350px;
+  }
+}
