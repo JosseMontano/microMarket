@@ -1,13 +1,25 @@
-import { Box, Grid, SelectChangeEvent, Typography } from "@mui/material";
-import CardProduct from "../components/global/cardProduct";
+import { Box, Grid, SelectChangeEvent } from "@mui/material";
 import Categories from "../components/company/categories";
 import { useMediaQuery } from "@mui/material";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import CategoriesSelect from "../components/company/categoriesSelect";
-import { colors } from "../styles/colors";
-import ArrowCircleLeftIcon from "@mui/icons-material/ArrowCircleLeft";
+import UseRedirect from "../hooks/useRedirect";
+import Arrow from "../components/company/arrow";
+import Cards from "../components/company/cards";
+import Navbar from "../components/global/navbar/navbar";
+import { margin } from "../styles/margin";
 
 const Company = () => {
+  // =============== DATA ===============
+  const company = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 3000);
+  }, []);
+
   // const isSmallScreen = useMediaQuery('(max-width:349px)');
   const isMediumScreen = useMediaQuery(
     "(min-width:350px) and (max-width:800px)"
@@ -19,26 +31,18 @@ const Company = () => {
     setAge(event.target.value);
   };
 
+  // =============== REDIRECT TO MAP ===============
+  const { handleRedirect } = UseRedirect();
+
   return (
     <>
-      <Box bgcolor={colors.first} padding={1} textAlign={"center"}>
-        <Typography
-          color={colors.sixth}
-          fontWeight={"bold"}
-          fontSize={20}
-          sx={{ cursor: "pointer" }}
-        >
-          MERCAWEB
-        </Typography>
-      </Box>
-      <Box padding={2}>
-        <Box>
-          <ArrowCircleLeftIcon
-            sx={{ color: colors.second, fontSize: 32, cursor: "pointer" }}
-          />
-        </Box>
+      <Navbar />
+
+      <Box padding={2} marginTop={margin.navbar}>
+        <Arrow handleRedirect={handleRedirect} />
 
         <Grid container>
+          
           {!isMediumScreen && (
             <Grid sm={2}>
               <Categories />
@@ -52,18 +56,11 @@ const Company = () => {
           )}
 
           <Grid xs={12} sm={!isMediumScreen ? 10 : 12}>
-            <Box
-              sx={{
-                display: "flex",
-                gap: 2,
-                flexWrap: "wrap",
-                justifyContent: "space-around",
-              }}
-            >
-              {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((_, i) => (
-                <CardProduct key={i} />
-              ))}
-            </Box>
+            <Cards
+              isMediumScreen={isMediumScreen}
+              data={company}
+              loading={loading}
+            />
           </Grid>
         </Grid>
       </Box>

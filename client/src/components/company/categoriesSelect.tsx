@@ -48,9 +48,10 @@ const CategoriesSelect = (params: Params) => {
             },
           }}
         >
-          <MenuItem value={10}>Ten</MenuItem>
-          <MenuItem value={20}>Twenty</MenuItem>
-          <MenuItem value={30}>Thirty</MenuItem>
+          <MenuItem value={10}>Chocolate</MenuItem>
+          <MenuItem value={20}>Bebidas</MenuItem>
+          <MenuItem value={30}>Baños</MenuItem>
+          <MenuItem value={30}>Otros</MenuItem>
         </Select>
       </FormControl>
     </Box>

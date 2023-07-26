@@ -6,12 +6,12 @@ import { CardActionArea } from "@mui/material";
 
 const CardProduct = () => {
   return (
-    <Card sx={{ maxWidth: 180 }}>
+    <Card sx={{ maxWidth: 150 }}>
       <CardActionArea>
         <CardMedia
           component="img"
           sx={{
-            minWidth: 180,
+            minWidth: 150,
             maxHeight: 120,
             objectFit: "cover",
           }}

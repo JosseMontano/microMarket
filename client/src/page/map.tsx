@@ -7,6 +7,7 @@ import { StoresDataType } from "../types/map";
 import MapComp from "../components/map/map";
 
 import Load from "../components/global/load";
+import Navbar from "../components/global/navbar/navbar";
 
 const Map = () => {
   const { latitude, longitude } = useGetDirection();
@@ -32,28 +33,31 @@ const Map = () => {
   };
 
   return (
-    <Box
-      height={"100vh"}
-      display={"flex"}
-      alignItems={"center"}
-      justifyContent={"center"}
-    >
-      {/* ============ SHOW MAP ============ */}
+    <>
+      <Navbar />
+      <Box
+        height={"100vh"}
+        display={"flex"}
+        alignItems={"center"}
+        justifyContent={"center"}
+      >
+        {/* ============ SHOW MAP ============ */}
 
-      {latitude && longitude != null ? (
-        <MapComp
-          latitude={latitude}
-          handleRedirectToCompany={handleRedirectToCompany}
-          longitude={longitude}
-          storesData={storesData}
-        />
-      ) : (
-        <Load />
-      )}
+        {latitude && longitude != null ? (
+          <MapComp
+            latitude={latitude}
+            handleRedirectToCompany={handleRedirectToCompany}
+            longitude={longitude}
+            storesData={storesData}
+          />
+        ) : (
+          <Load />
+        )}
 
-      {/* ============ ICON OPTIONS ============ */}
-      <IconBottom />
-    </Box>
+        {/* ============ ICON OPTIONS ============ */}
+        <IconBottom />
+      </Box>
+    </>
   );
 };
 

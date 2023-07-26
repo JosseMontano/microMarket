@@ -17,7 +17,7 @@ const Categories = () => {
             fontWeight: "bold",
           }}
         >
-          Gender
+          Categorias
         </FormLabel>
         <RadioGroup
           aria-labelledby="demo-radio-buttons-group-label"
@@ -35,7 +35,7 @@ const Categories = () => {
                 }}
               />
             }
-            label="Female"
+            label="Chocolate"
           />
           <FormControlLabel
             value="male"
@@ -48,7 +48,7 @@ const Categories = () => {
                 }}
               />
             }
-            label="Male"
+            label="Bebidas"
           />
           <FormControlLabel
             value="other1"
@@ -61,7 +61,7 @@ const Categories = () => {
                 }}
               />
             }
-            label="Other"
+            label="Baños"
           />
           <FormControlLabel
             value="other2"
@@ -74,33 +74,7 @@ const Categories = () => {
                 }}
               />
             }
-            label="Other"
-          />
-          <FormControlLabel
-            value="other3"
-            control={
-              <Radio
-                sx={{
-                  "&.Mui-checked": {
-                    color: colors.third,
-                  },
-                }}
-              />
-            }
-            label="Other"
-          />
-          <FormControlLabel
-            value="other4"
-            control={
-              <Radio
-                sx={{
-                  "&.Mui-checked": {
-                    color: colors.third,
-                  },
-                }}
-              />
-            }
-            label="Other"
+            label="Otros"
           />
         </RadioGroup>
       </FormControl>
