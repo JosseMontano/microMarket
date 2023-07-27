@@ -4,7 +4,7 @@ import StoreIcon from "@mui/icons-material/Store";
 
 const IconBottom = () => {
   return (
-    <Box position={"absolute"} bottom={10} right={15}>
+    <Box position={"absolute"} bottom={10} right={15} zIndex={9999}>
       <Box
         bgcolor={colors.first}
         width={70}
